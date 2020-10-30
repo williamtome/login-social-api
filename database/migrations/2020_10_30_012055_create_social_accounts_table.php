@@ -20,7 +20,7 @@ class CreateSocialAccountsTable extends Migration
             $table->string('provider_id');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
