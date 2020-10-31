@@ -18,10 +18,9 @@ class SocialAccountsService
      */
     public function findOrCreate(ProviderUser $providerUser, string $provider): User
     {
-        $socialAccount = SocialAccount::where([
-            'provider_name' => $provider,
-            'provider_id', $providerUser->getId()
-        ])->first();
+        $socialAccount = SocialAccount::where('provider_name', $provider)
+            ->where('provider_id', $providerUser->getId())
+            ->first();
 
         if ($socialAccount) {
 
