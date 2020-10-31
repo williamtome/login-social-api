@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-signin-client_id" content="1084051762621-egt25jdth703imp69tli36hdav8qqtkh.apps.googleusercontent.com">
 
         <title>Laravel</title>
 
@@ -64,6 +65,28 @@
         </style>
     </head>
     <body>
+        <div id="my-signin2"></div>
+        <script>
+            function onSuccess(googleUser) {
+              console.log(googleUser.getAuthResponse(true));
+            }
+            function onFailure(error) {
+              console.log(error);
+            }
+            function renderButton() {
+              gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+              });
+            }
+          </script>
+
+          <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
     <script>
         window.fbAsyncInit = function() {
